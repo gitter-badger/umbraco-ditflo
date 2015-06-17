@@ -3,11 +3,11 @@ using Our.Umbraco.Ditto;
 
 namespace DitFlo.Ditto.ValueResolvers
 {
-    public class LatestNewsResolver : BaseNewsResolver
+    public class NewsResolver : BaseNewsResolver
     {
         public override object ResolveValue()
         {
-            return GetNews(5).As<NewsItemLink>();
+            return GetNews(5).As<NewsPreviewLink>();
         }
     }
 }

@@ -1,29 +1,6 @@
-﻿@inherits UmbracoTemplatePage
+﻿@inherits DitFlo.Web.Mvc.DitFloView<DitFlo.ViewModels.NewsOverviewViewModel>
 @{
     Layout = "umbLayout.cshtml";
-
-    // If the editor has not explicitly provided the "Page title" property page 
-    // then just show the name of the page otherwise show the provided title
-    var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
-        ? CurrentPage.Name
-        : CurrentPage.Title;
-
-    // Model.Content is the current page that we're on
-    // AncestorsOrSelf is all of the ancestors this page has in the tree
-    // (1) means: go up to level 1 and stop looking for more ancestors when you get there
-    // First() gets the first ancestor found (the home page, on level 1)
-    var homePage = CurrentPage.AncestorsOrSelf(1).First();    
-    
-    // Find all pages with document type alias umbNewsOverview
-    // We do that using the plural, umbNewsOverviews (note the extra "s" in the end)
-    // Then take the first one, as we know there will only be on news overview page
-    var newsOverview = homePage.umbNewsOverviews.First();
-
-    // Similar to above: find all pages with document type umbNewsItem under the news overview page
-    // Then order them, first by publishDate (a property the editor can explicitly set on the news item)
-    // and then by createDate, which is set by Umbraco automatically when a page gets created.
-    var newsItems = newsOverview.umbNewsItems.OrderBy("publishDate desc, createDate desc").Take(5);
-
 }
 <!-- Main -->
 <div id="main-wrapper">
@@ -34,37 +11,24 @@
                     <!-- Content -->
                     <article class="is-page-content">
                         <header>
-                            <h2>@pageTitle</h2>
+                            <h2>@Model.View.Title</h2>
                         </header>
 
-                        @foreach (var item in newsItems)
+                        @foreach (var item in Model.View.NewsItems)
                         {
-
-                            // If the editor has not explicitly provided the "Page title" property page 
-                            // then just show the name of the page otherwise show the provided title
-                            var title = string.IsNullOrWhiteSpace(item.Title) 
-                                ? item.Name 
-                                : item.Title;
-
-
-                            // If the editor has not explicitly set the publishDate property then show the create date
-                            var dateTime = item.PublishDate == default(DateTime) 
-                                ? item.CreateDate 
-                                : item.PublishDate;
-                            
                             <section>
-                                <h3><a href="@item.Url">@title</a></h3>
-                                <span class="byline">@item.SubHeader</span>
+                                <h3><a href="@item.Url">@item.Title</a></h3>
+                                <span class="byline">@item.SubTitle</span>
                                 <ul class="meta">
-                                    <li class="timestamp">@dateTime.ToString("f")</li>
+                                    <li class="timestamp">@item.Date.ToString("f")</li>
                                 </ul>
 
-                                @if (string.IsNullOrWhiteSpace(item.Image) == false)
+                                @if (!item.Image.IsNullOrWhiteSpace())
                                 {
                                     <a href="@item.Url" class="image image-full"><img src="@item.Image" alt="" /></a>
                                 }
 
-                                @Umbraco.Truncate(item.BodyText, 200)
+                                <p>@item.Extract</p>
 
                                 <a href="@item.Url" class="button">Continue Reading</a>
                             </section>
