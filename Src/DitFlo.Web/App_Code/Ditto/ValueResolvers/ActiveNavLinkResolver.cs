@@ -8,7 +8,6 @@ namespace DitFlo.Ditto.ValueResolvers
         public override object ResolveValue()
         {
             if (Content == null) return false;
-
             return Content.Id == UmbracoContext.Current.PageId;
         }
     }

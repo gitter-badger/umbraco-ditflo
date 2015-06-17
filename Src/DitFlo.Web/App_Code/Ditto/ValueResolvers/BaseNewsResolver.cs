@@ -9,7 +9,7 @@ namespace DitFlo.Ditto.ValueResolvers
 {
     public abstract class BaseNewsResolver : DittoValueResolver
     {
-        protected IEnumerable<IPublishedContent> GetNews(int count)
+        protected IEnumerable<IPublishedContent> GetNews()
         {
             if (Content == null) return Enumerable.Empty<IPublishedContent>();
 
@@ -19,8 +19,7 @@ namespace DitFlo.Ditto.ValueResolvers
 
             return newsArchive.Children.Where(x => x.DocumentTypeAlias == "umbNewsItem")
                 .OrderByDescending(x => x.Get<DateTime>("publishDate"))
-                .ThenByDescending(x => x.CreateDate)
-                .Take(count);
+                .ThenByDescending(x => x.CreateDate);
         }
     }
 }

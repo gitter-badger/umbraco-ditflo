@@ -1,4 +1,5 @@
-﻿using DitFlo.Models;
+﻿using System.Linq;
+using DitFlo.Models;
 using Our.Umbraco.Ditto;
 
 namespace DitFlo.Ditto.ValueResolvers
@@ -7,7 +8,7 @@ namespace DitFlo.Ditto.ValueResolvers
     {
         public override object ResolveValue()
         {
-            return GetNews(5).As<NewsItemLink>();
+            return GetNews().Take(5).As<NewsItemLink>();
         }
     }
 }

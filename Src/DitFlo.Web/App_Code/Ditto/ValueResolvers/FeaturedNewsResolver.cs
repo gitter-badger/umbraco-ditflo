@@ -8,7 +8,7 @@ namespace DitFlo.Ditto.ValueResolvers
     {
         public override object ResolveValue()
         {
-            return GetNews(1).First().As<NewsPreviewLink>();
+            return GetNews().First().As<NewsPreviewLink>();
         }
     }
 }

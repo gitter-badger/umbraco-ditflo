@@ -11,6 +11,6 @@ namespace DitFlo.ViewModels
         public string Title { get; set; }
 
         [DittoValueResolver(typeof(NewsResolver))]
-        public IEnumerable<NewsPreviewLink> NewsItems { get; set; }
+        public PagedCollection<NewsPreviewLink> NewsItems { get; set; }
     }
 }

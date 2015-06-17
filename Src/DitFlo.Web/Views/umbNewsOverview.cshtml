@@ -14,7 +14,7 @@
                             <h2>@Model.View.Title</h2>
                         </header>
 
-                        @foreach (var item in Model.View.NewsItems)
+                        @foreach (var item in Model.View.NewsItems.Items)
                         {
                             <section>
                                 <h3><a href="@item.Url">@item.Title</a></h3>
@@ -33,6 +33,8 @@
                                 <a href="@item.Url" class="button">Continue Reading</a>
                             </section>
                         }
+                        
+                        @Html.Partial("umbPager", Model.View.NewsItems)
                     </article>
                     <!-- /Content -->
                 </div>
