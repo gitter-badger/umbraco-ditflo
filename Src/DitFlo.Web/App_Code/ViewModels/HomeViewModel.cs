@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace DitFlo.Models
+namespace DitFlo.ViewModels
 {
     public class HomeViewModel
     {

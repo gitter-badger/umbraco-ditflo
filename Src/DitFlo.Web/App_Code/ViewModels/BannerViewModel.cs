@@ -1,9 +1,10 @@
 ﻿using System.Web;
 using DitFlo.Ditto.TypeConverters;
+using DitFlo.Models;
 using Our.Umbraco.Ditto;
 using System.ComponentModel;
 
-namespace DitFlo.Models
+namespace DitFlo.ViewModels
 {
     [UmbracoProperties(Prefix = "banner")]
     public class BannerViewModel
@@ -27,14 +28,5 @@ namespace DitFlo.Models
         public Link Link { get; set; }
 
         public string LinkText { get; set; }
-    }
-
-    public class Link
-    {
-        public string Name { get; set; }
-
-        public string Url { get; set; }
-
-        public string UrlTarget { get; set; }
     }
 }

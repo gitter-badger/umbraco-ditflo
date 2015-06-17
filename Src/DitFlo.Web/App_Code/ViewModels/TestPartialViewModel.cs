@@ -1,4 +1,4 @@
-﻿namespace DitFlo.Models
+﻿namespace DitFlo.ViewModels
 {
     public class TestPartialViewModel
     {

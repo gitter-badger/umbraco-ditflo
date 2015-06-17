@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using Our.Umbraco.Ditto;
 
-namespace DitFlo.Models
+namespace DitFlo.ViewModels
 {
     [UmbracoProperties(Prefix = "about", Recursive = true)]
     public class AboutViewModel

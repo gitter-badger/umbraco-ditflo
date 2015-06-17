@@ -1,4 +1,4 @@
-﻿@inherits DitFlo.Web.Mvc.DitFloView<DitFlo.Models.LayoutViewModel>
+﻿@inherits DitFlo.Web.Mvc.DitFloView<DitFlo.ViewModels.LayoutViewModel>
 @{
     Layout = null;
 }<!DOCTYPE html>
@@ -32,7 +32,7 @@
     <header id="header">
         <div class="logo">
             <div>
-                <h1><a href="@Model.View.SiteUrl" id="logo">@Model.View.SiteName</a></h1>
+                <h1><a href="@Model.View.HomeLink.Url" id="logo">@Model.View.SiteName</a></h1>
                 <span class="byline">@Model.View.SiteDescription</span>
             </div>
         </div>

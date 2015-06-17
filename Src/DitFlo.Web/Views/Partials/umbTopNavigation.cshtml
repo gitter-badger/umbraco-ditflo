@@ -1,4 +1,4 @@
-﻿@inherits DitFlo.Web.Mvc.DitFloView<DitFlo.Models.TopNavigationViewModel>
+﻿@inherits DitFlo.Web.Mvc.DitFloView<DitFlo.ViewModels.TopNavigationViewModel>
 <!-- Nav -->
 <nav id="nav" class="skel-panels-fixed">
     <ul>
@@ -6,7 +6,7 @@
         {
             @* If the Id of the item is the same as the Id of the current page then we want to add the class "current_page_item" *@
             @* Otherwise, we set the class to null, that way it will not even be added to the <li> element *@
-            <li class="@(item.IsActive ? "current_page_item" : null)"><a href="@item.Url" target="@item.UrlTarget">@item.Name</a></li>
+            <li class="@(item.IsActive ? "current_page_item" : null)"><a href="@item.Url" target="@item.UrlTarget">@item.Title</a></li>
         }
     </ul>
 </nav>
