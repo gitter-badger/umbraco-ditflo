@@ -45,39 +45,6 @@ namespace DitFlo.Web.Mvc.Controllers
         }
     }
 
-    //public abstract class DitFloController<TViewModel, TGlobalModel> : AbstrcatDitFloController
-    //    where TViewModel : class
-    //    where TGlobalModel : class
-    //{
-    //    private DitFloViewModel<TViewModel, TGlobalModel> _model;
-    //    public DitFloViewModel<TViewModel, TGlobalModel> Model
-    //    {
-    //        get
-    //        {
-    //            return _model ?? (_model = new DitFloViewModel<TViewModel, TGlobalModel>(
-    //                CurrentPage,
-    //                UmbracoContext.PublishedContentRequest.Culture));
-    //        }
-    //        set { _model = value; }
-    //    }
-
-    //    protected override ActionResult CurrentView(object model = null)
-    //    {
-    //        if (model == null)
-    //            model = Model;
-
-    //        return base.CurrentView(model);
-    //    }
-
-    //    protected override ActionResult CurrentPartialView(object model = null)
-    //    {
-    //        if (model == null)
-    //            model = Model;
-
-    //        return base.CurrentPartialView(model);
-    //    }
-    //}
-
     public abstract class DitFloController<TViewModel> : AbstrcatDitFloController
         where TViewModel : class
     {

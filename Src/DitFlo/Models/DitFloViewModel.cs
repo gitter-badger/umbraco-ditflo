@@ -43,34 +43,6 @@ namespace DitFlo.Models
         }
     }
 
-    //public class DitFloViewModel<TViewModel, TGlobalModel> : DitFloViewModel<TViewModel>
-    //    where TViewModel : class
-    //    where TGlobalModel : class
-    //{
-    //    public DitFloViewModel(IPublishedContent content, CultureInfo culture) 
-    //        : base(content, culture)
-    //    { }
-
-    //    public DitFloViewModel(IPublishedContent content) 
-    //        : base(content)
-    //    { }
-
-    //    public TGlobalModel Global
-    //    {
-    //        get
-    //        {
-    //            return (TGlobalModel)Cache.RequestCache.GetCacheItem("DitFloViewModel_GetGlobal_" 
-    //                + typeof(TGlobalModel).AssemblyQualifiedName, () =>
-    //            {
-    //                if (Content is TGlobalModel)
-    //                    return Content as TGlobalModel;
-
-    //                return Content.As<TGlobalModel>();
-    //            });
-    //        }
-    //    }
-    //}
-
     public class DitFloViewModel : DitFloViewModel<IPublishedContent>
     {
         public DitFloViewModel(IPublishedContent content, CultureInfo culture)
