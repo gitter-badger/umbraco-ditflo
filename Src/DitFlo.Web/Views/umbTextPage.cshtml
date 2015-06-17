@@ -1,12 +1,6 @@
-﻿@inherits UmbracoTemplatePage
+﻿@inherits DitFlo.Web.Mvc.DitFloView<DitFlo.ViewModels.TextPageViewModel>
 @{
-    Layout = "umbLayout.cshtml";
-
-    // If the editor has not explicitly provided the "Page title" property page 
-    // then just show the name of the page otherwise show the provided title
-    var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
-        ? CurrentPage.Name
-        : CurrentPage.Title;    
+    Layout = "umbLayout.cshtml";  
 }
 <div id="main-wrapper">
     <div id="main" class="container">
@@ -16,15 +10,15 @@
                     <!-- Content -->
                     <article class="is-page-content">
                         <header>
-                            <h2>@pageTitle</h2>
+                            <h2>@Model.View.Title</h2>
                         </header>
                         <section>
-                            @if (string.IsNullOrWhiteSpace(CurrentPage.Image) == false)
+                            @if (!Model.View.Image.IsNullOrWhiteSpace())
                             {
-                                <span class="image image-full"><img src="@CurrentPage.Image" alt="" /></span>
+                                <span class="image image-full"><img src="@Model.View.Image" alt="" /></span>
                             }
 
-                            @CurrentPage.BodyText
+                            @Model.View.BodyText
                         </section>                           
                     </article>
                     <!-- /Content -->
