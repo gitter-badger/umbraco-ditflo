@@ -20,7 +20,7 @@
                             </ul>
                         </header>
 
-                        @if (Model.View.FeaturedNews.Image.IsNullOrWhiteSpace())
+                        @if (!Model.View.FeaturedNews.Image.IsNullOrWhiteSpace())
                         {
                             <a href="@Model.View.FeaturedNews.Url" class="image image-full"><img src="@Model.View.FeaturedNews.Image" alt="" /></a>
                         }
