@@ -7,7 +7,7 @@ using Umbraco.Web.Mvc;
 
 namespace DitFlo.Web.Mvc.Controllers
 {
-    public abstract class AbstrcatDitFloController : SurfaceController, IRenderMvcController
+    public abstract class AbstractDitFloController : SurfaceController, IRenderMvcController
     {
         public virtual ActionResult Index(RenderModel model)
         {
@@ -45,7 +45,7 @@ namespace DitFlo.Web.Mvc.Controllers
         }
     }
 
-    public abstract class DitFloController<TViewModel> : AbstrcatDitFloController
+    public abstract class DitFloController<TViewModel> : AbstractDitFloController
         where TViewModel : class
     {
         private DitFloViewModel<TViewModel> _model;
