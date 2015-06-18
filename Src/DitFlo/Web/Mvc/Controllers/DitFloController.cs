@@ -17,6 +17,7 @@ namespace DitFlo.Web.Mvc.Controllers
         protected virtual ActionResult CurrentView(object model = null)
         {
             var viewName = ControllerContext.RouteData.Values["action"].ToString();
+
             if (ViewExists(viewName, false))
                 return View(viewName, model);
 
@@ -26,6 +27,7 @@ namespace DitFlo.Web.Mvc.Controllers
         protected virtual ActionResult CurrentPartialView(object model = null)
         {
             var viewName = ControllerContext.RouteData.Values["action"].ToString();
+
             if (ViewExists(viewName, true))
                 return PartialView(viewName, model);
 
@@ -37,6 +39,7 @@ namespace DitFlo.Web.Mvc.Controllers
             var result = !isPartial
                 ? ViewEngines.Engines.FindView(ControllerContext, viewName, null)
                 : ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
+
             if (result.View != null)
                 return true;
 
