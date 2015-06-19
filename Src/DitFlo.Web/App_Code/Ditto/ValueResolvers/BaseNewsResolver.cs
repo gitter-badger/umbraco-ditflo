@@ -7,7 +7,8 @@ using Umbraco.Web;
 
 namespace DitFlo.Ditto.ValueResolvers
 {
-    public abstract class BaseNewsResolver : DittoValueResolver
+    public abstract class BaseNewsResolver<TContextType> : DittoValueResolver<TContextType>
+        where TContextType : DittoValueResolverContext
     {
         protected IEnumerable<IPublishedContent> GetNews()
         {
@@ -22,4 +23,7 @@ namespace DitFlo.Ditto.ValueResolvers
                 .ThenByDescending(x => x.CreateDate);
         }
     }
+
+    public abstract class BaseNewsResolver : BaseNewsResolver<DittoValueResolverContext>
+    { }
 }

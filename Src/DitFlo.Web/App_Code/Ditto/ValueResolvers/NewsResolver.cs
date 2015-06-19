@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Linq;
-using System.Web;
+using DitFlo.Ditto.ValueResolvers.Contexts;
 using DitFlo.Models;
 using Our.Umbraco.Ditto;
 
 namespace DitFlo.Ditto.ValueResolvers
 {
-    public class NewsResolver : BaseNewsResolver
+    public class NewsResolver : BaseNewsResolver<NewsResolverContext>
     {
         public override object ResolveValue()
         {
-            var currentPage = long.Parse("0" + HttpContext.Current.Request["p"]);
+            var currentPage = Context.CurrentPage;
             var pageSize = 2;
 
             var items = GetNews().ToList();
