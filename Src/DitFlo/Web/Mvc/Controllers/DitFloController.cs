@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using DitFlo.Models;
+using Our.Umbraco.Ditto;
 using Umbraco.Core.Logging;
 using Umbraco.Core.Models;
 using Umbraco.Web.Models;
@@ -45,6 +46,12 @@ namespace DitFlo.Web.Mvc.Controllers
 
             LogHelper.Warn<DitFloController>("No view file found with the name " + viewName);
             return false;
+        }
+
+        protected virtual void RegisterValueResolverContext<TContextType>(TContextType context)
+            where TContextType : DittoValueResolverContext
+        {
+            Ditto.RegisterValueResolverContext(context);
         }
     }
 

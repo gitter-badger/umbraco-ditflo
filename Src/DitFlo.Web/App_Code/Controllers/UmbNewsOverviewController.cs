@@ -5,17 +5,15 @@ using DitFlo.Ditto.ValueResolvers.Contexts;
 
 namespace DitFlo.Controllers
 {
-    using Ditto = Our.Umbraco.Ditto.Ditto;
-
     public class UmbNewsOverviewController : DitFloController
     {
         public ActionResult Index(RenderModel model, long? p)
         {
-            Ditto.RegisterValueResolverContext(new NewsResolverContext
+            RegisterValueResolverContext(new NewsResolverContext
             {
                 CurrentPage = p.HasValue ? p.Value : 1
             });
-
+            
             return CurrentView();
         }
     }
