@@ -124,9 +124,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Our.Umbraco.Ditto, Version=0.7.5627.18921, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Our.Umbraco.Ditto, Version=0.7.5648.33934, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Our.Umbraco.Ditto\lib\net45\Our.Umbraco.Ditto.dll</HintPath>
+      <HintPath>..\..\Lib\Our.Umbraco.Ditto\Our.Umbraco.Ditto.dll</HintPath>
     </Reference>
     <Reference Include="SQLCE4Umbraco, Version=1.0.5261.28131, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

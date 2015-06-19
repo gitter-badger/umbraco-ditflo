@@ -1,0 +1,1 @@
+We don't use the NuGet version of Ditto as we are ussing a cutting edge build so we include it from a lib folder instead so that it's easier to upgrade. Once stable we'll move to the nuget package.

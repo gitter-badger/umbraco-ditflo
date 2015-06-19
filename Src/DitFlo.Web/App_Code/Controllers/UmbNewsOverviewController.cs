@@ -10,7 +10,8 @@ namespace DitFlo.Controllers
     {
         public ActionResult Index(RenderModel model, long p = 1)
         {
-            // IMPORTANT! ALWAYS register resolver contexts before accessing Model.View
+            // IMPORTANT! 
+            // ALWAYS register resolver contexts before accessing Model.View
             // if you need to access the view model in your controller
             RegisterValueResolverContext(new NewsResolverContext
             {
