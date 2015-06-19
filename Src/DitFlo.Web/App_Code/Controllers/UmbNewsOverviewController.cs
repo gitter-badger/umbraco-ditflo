@@ -1,11 +1,12 @@
 ﻿using System.Web.Mvc;
+using DitFlo.ViewModels;
 using Umbraco.Web.Models;
 using DitFlo.Web.Mvc.Controllers;
 using DitFlo.Ditto.ValueResolvers.Contexts;
 
 namespace DitFlo.Controllers
 {
-    public class UmbNewsOverviewController : DitFloController
+    public class UmbNewsOverviewController : DitFloController<NewsOverviewViewModel>
     {
         public ActionResult Index(RenderModel model, long p = 1)
         {

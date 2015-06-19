@@ -1,19 +1,36 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using Our.Umbraco.Ditto;
-using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web.Models;
 
 namespace DitFlo.Models
 {
-    public class DitFloViewModel<TViewModel> : RenderModel, IDitFloViewModel
+    public abstract class BaseDitoFloViewModel : RenderModel, IDitFloViewModel
+    {
+        protected BaseDitoFloViewModel(IPublishedContent content, CultureInfo culture)
+            : base(content, culture)
+        {
+            ValueResolverContexts = new List<DittoValueResolverContext>();
+        }
+
+        protected BaseDitoFloViewModel(IPublishedContent content) 
+            : this(content, null)
+        { }
+
+        public IPublishedContent CurrentPage { get { return Content; } }
+
+        internal List<DittoValueResolverContext> ValueResolverContexts { get; set; }
+    }
+
+    public class DitFloViewModel<TViewModel> : BaseDitoFloViewModel
         where TViewModel : class
     {
         public DitFloViewModel(IPublishedContent content, CultureInfo culture)
             : base(content, culture)
         { }
 
-        public DitFloViewModel(IPublishedContent content)
+        protected DitFloViewModel(IPublishedContent content)
             : base(content)
         { }
 
@@ -21,25 +38,11 @@ namespace DitFlo.Models
         {
             get
             {
-               return (TViewModel)Cache.RequestCache.GetCacheItem("DitFloViewModel_GetView_"
-                    + typeof(TViewModel).AssemblyQualifiedName + "_" + Content.Id, () =>
-                    {
-                        if (Content is TViewModel)
-                            return Content as TViewModel;
+                if (Content is TViewModel)
+                    return Content as TViewModel;
 
-                        return Content.As<TViewModel>();
-                    });
+                return Content.As<TViewModel>(valueResolverContexts: ValueResolverContexts);
             }
-        }
-
-        public IPublishedContent CurrentPage
-        {
-            get { return Content; }
-        }
-
-        internal CacheHelper Cache
-        {
-            get { return ApplicationContext.Current.ApplicationCache; }
         }
     }
 
@@ -49,7 +52,7 @@ namespace DitFlo.Models
             : base(content, culture)
         { }
 
-        public DitFloViewModel(IPublishedContent content)
+        protected DitFloViewModel(IPublishedContent content)
             : base(content)
         { }
     }

@@ -245,6 +245,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /s /y "$(TargetPath)" "$(SolutionDir)Src\$(ProjectName).Web\bin"
+xcopy /s /y "$(TargetDir)$(ProjectName).pdb" "$(SolutionDir)Src\$(ProjectName).Web\bin"
 xcopy /s /y "$(TargetDir)Our.Umbraco.Ditto.dll" "$(SolutionDir)Src\$(ProjectName).Web\bin"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
