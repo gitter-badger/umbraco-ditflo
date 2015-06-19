@@ -1,8 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using DitFlo.Ditto.ValueResolvers.Contexts;
 using DitFlo.ViewModels;
-using Umbraco.Web.Models;
 using DitFlo.Web.Mvc.Controllers;
-using DitFlo.Ditto.ValueResolvers.Contexts;
+using System.Web.Mvc;
+using Umbraco.Web.Models;
 
 namespace DitFlo.Controllers
 {
@@ -10,6 +10,8 @@ namespace DitFlo.Controllers
     {
         public ActionResult Index(RenderModel model, long p = 1)
         {
+            // IMPORTANT! ALWAYS register resolver contexts before accessing Model.View
+            // if you need to access the view model in your controller
             RegisterValueResolverContext(new NewsResolverContext
             {
                 CurrentPage = p

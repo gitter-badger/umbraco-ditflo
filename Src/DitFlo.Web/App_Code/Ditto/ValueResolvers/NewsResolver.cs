@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
-using DitFlo.Ditto.ValueResolvers.Contexts;
+﻿using DitFlo.Ditto.ValueResolvers.Contexts;
 using DitFlo.Models;
 using Our.Umbraco.Ditto;
+using System;
+using System.Linq;
 
 namespace DitFlo.Ditto.ValueResolvers
 {

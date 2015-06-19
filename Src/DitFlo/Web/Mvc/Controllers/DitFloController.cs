@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using DitFlo.Models;
+﻿using DitFlo.Models;
 using Our.Umbraco.Ditto;
+using System.Web.Mvc;
 using Umbraco.Core.Logging;
 using Umbraco.Core.Models;
 using Umbraco.Web.Models;

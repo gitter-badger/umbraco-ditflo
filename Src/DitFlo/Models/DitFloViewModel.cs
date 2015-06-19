@@ -34,14 +34,24 @@ namespace DitFlo.Models
             : base(content)
         { }
 
+        private TViewModel _view;
         public TViewModel View
         {
             get
             {
-                if (Content is TViewModel)
-                    return Content as TViewModel;
+                if (_view == null)
+                {
+                    if (Content is TViewModel)
+                    {
+                        _view = Content as TViewModel;
+                    }
+                    else
+                    {
+                        _view = Content.As<TViewModel>(valueResolverContexts: ValueResolverContexts);
+                    }
+                }
 
-                return Content.As<TViewModel>(valueResolverContexts: ValueResolverContexts);
+                return _view;
             }
         }
     }
