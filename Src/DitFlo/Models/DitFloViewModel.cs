@@ -53,5 +53,5 @@ namespace DitFlo.Models
             : base(content)
         { }
     }
-    
+
 }
