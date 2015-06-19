@@ -7,11 +7,11 @@ namespace DitFlo.Controllers
 {
     public class UmbNewsOverviewController : DitFloController
     {
-        public ActionResult Index(RenderModel model, long? p)
+        public ActionResult Index(RenderModel model, long p = 1)
         {
             RegisterValueResolverContext(new NewsResolverContext
             {
-                CurrentPage = p.HasValue ? p.Value : 1
+                CurrentPage = p
             });
             
             return CurrentView();
