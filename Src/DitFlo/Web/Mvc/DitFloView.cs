@@ -1,5 +1,7 @@
-﻿using DitFlo.Models;
+﻿using System.Collections.Generic;
+using DitFlo.Models;
 using System.Web.Mvc;
+using Our.Umbraco.Ditto;
 using Umbraco.Core.Models;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
@@ -15,32 +17,47 @@ namespace DitFlo.Web.Mvc
     {
         protected override void SetViewData(ViewDataDictionary viewData)
         {
-            // If the current view data model is the same, just use it
-            if (viewData.Model is DitFloViewModel<TViewModel>)
+            var model = viewData.Model;
+            var resolverContexts = new List<DittoValueResolverContext>();
+
+            var transferModel = model as DitFloTransferModel;
+            if (transferModel != null)
             {
-                base.SetViewData(viewData);
-                return;
+                model = transferModel.Model;
+                resolverContexts = transferModel.ValueResolverContexts;
             }
 
             // We need to give each view it's own view data dictonary
             // to allow them to have different model types
             var newViewData = new ViewDataDictionary(viewData);
 
-            var content = viewData.Model as IPublishedContent;
-            if (content != null)
+            // If the current view data model is the same, just use it
+            var typedModel = model as TViewModel;
+            if (typedModel != null)
             {
-                newViewData.Model = new DitFloViewModel<TViewModel>(content,
-                    UmbracoContext.PublishedContentRequest.Culture);
+                newViewData.Model = new DitFloViewModel<TViewModel>(
+                        UmbracoContext.PublishedContentRequest.PublishedContent,
+                        UmbracoContext.PublishedContentRequest.Culture) { View = typedModel, ValueResolverContexts = resolverContexts };
 
                 base.SetViewData(newViewData);
                 return;
             }
 
-            var renderModel = viewData.Model as RenderModel;
+            var content = model as IPublishedContent;
+            if (content != null)
+            {
+                newViewData.Model = new DitFloViewModel<TViewModel>(content,
+                    UmbracoContext.PublishedContentRequest.Culture) { ValueResolverContexts = resolverContexts };
+
+                base.SetViewData(newViewData);
+                return;
+            }
+
+            var renderModel = model as RenderModel;
             if (renderModel != null)
             {
                 newViewData.Model = new DitFloViewModel<TViewModel>(renderModel.Content,
-                    renderModel.CurrentCulture);
+                    renderModel.CurrentCulture) { ValueResolverContexts = resolverContexts };
 
                 base.SetViewData(newViewData);
                 return;

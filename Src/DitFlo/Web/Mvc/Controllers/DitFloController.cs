@@ -1,36 +1,53 @@
-﻿using DitFlo.Models;
+﻿using System.Collections.Generic;
 using Our.Umbraco.Ditto;
 using System.Web.Mvc;
+using DitFlo.Models;
 using Umbraco.Core.Logging;
-using Umbraco.Core.Models;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
 
 namespace DitFlo.Web.Mvc.Controllers
 {
-    public abstract class AbstractDitFloController : SurfaceController, IRenderMvcController
+    public abstract class DitFloController : SurfaceController, IRenderMvcController
     {
+        protected List<DittoValueResolverContext> _resolverContexts;
+
+        protected DitFloController()
+        {
+            _resolverContexts = new List<DittoValueResolverContext>();
+        }
+
         public virtual ActionResult Index(RenderModel model)
         {
-            return CurrentView();
+            return CurrentView(model);
         }
 
         protected virtual ActionResult CurrentView(object model = null)
         {
+            if (model == null)
+                model = CurrentPage;
+
+            var transferModel = new DitFloTransferModel(model, _resolverContexts);
+
             var viewName = ControllerContext.RouteData.Values["action"].ToString();
 
             if (ViewExists(viewName, false))
-                return View(viewName, model);
+                return View(viewName, transferModel);
 
             return Content("");
         }
 
         protected virtual ActionResult CurrentPartialView(object model = null)
         {
+            if (model == null)
+                model = CurrentPage;
+
+            var transferModel = new DitFloTransferModel(model, _resolverContexts);
+
             var viewName = ControllerContext.RouteData.Values["action"].ToString();
 
             if (ViewExists(viewName, true))
-                return PartialView(viewName, model);
+                return PartialView(viewName, transferModel);
 
             return Content("");
         }
@@ -47,46 +64,11 @@ namespace DitFlo.Web.Mvc.Controllers
             LogHelper.Warn<DitFloController>("No view file found with the name " + viewName);
             return false;
         }
-    }
-
-    public abstract class DitFloController<TViewModel> : AbstractDitFloController
-        where TViewModel : class
-    {
-        private DitFloViewModel<TViewModel> _model;
-        public DitFloViewModel<TViewModel> Model
-        {
-            get
-            {
-                return _model ?? (_model = new DitFloViewModel<TViewModel>(
-                    CurrentPage,
-                    UmbracoContext.PublishedContentRequest.Culture));
-            }
-            set { _model = value; }
-        }
-
-        protected override ActionResult CurrentView(object model = null)
-        {
-            if (model == null)
-                model = Model;
-
-            return base.CurrentView(model);
-        }
-
-        protected override ActionResult CurrentPartialView(object model = null)
-        {
-            if (model == null)
-                model = Model;
-
-            return base.CurrentPartialView(model);
-        }
 
         protected virtual void RegisterValueResolverContext<TContextType>(TContextType context)
             where TContextType : DittoValueResolverContext
         {
-            Model.ValueResolverContexts.Add(context);
+            _resolverContexts.Add(context);
         }
     }
-
-    public abstract class DitFloController : DitFloController<IPublishedContent>
-    { }
 }

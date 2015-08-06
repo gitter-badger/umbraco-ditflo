@@ -232,6 +232,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DitFloTransferModel.cs" />
     <Compile Include="Models\IDitFloViewModel.cs" />
     <Compile Include="Web\Mvc\Controllers\DitFloController.cs" />
     <Compile Include="Models\DitFloViewModel.cs" />

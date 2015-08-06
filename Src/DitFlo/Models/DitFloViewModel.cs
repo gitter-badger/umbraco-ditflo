@@ -6,15 +6,15 @@ using Umbraco.Web.Models;
 
 namespace DitFlo.Models
 {
-    public abstract class BaseDitoFloViewModel : RenderModel, IDitFloViewModel
+    public abstract class BaseDitFloViewModel : RenderModel, IDitFloViewModel
     {
-        protected BaseDitoFloViewModel(IPublishedContent content, CultureInfo culture)
+        protected BaseDitFloViewModel(IPublishedContent content, CultureInfo culture)
             : base(content, culture)
         {
             ValueResolverContexts = new List<DittoValueResolverContext>();
         }
-
-        protected BaseDitoFloViewModel(IPublishedContent content) 
+        
+        protected BaseDitFloViewModel(IPublishedContent content) 
             : this(content, null)
         { }
 
@@ -23,7 +23,7 @@ namespace DitFlo.Models
         internal List<DittoValueResolverContext> ValueResolverContexts { get; set; }
     }
 
-    public class DitFloViewModel<TViewModel> : BaseDitoFloViewModel
+    public class DitFloViewModel<TViewModel> : BaseDitFloViewModel
         where TViewModel : class
     {
         public DitFloViewModel(IPublishedContent content, CultureInfo culture)
@@ -53,7 +53,12 @@ namespace DitFlo.Models
 
                 return _view;
             }
+            internal set
+            {
+                _view = value;
+            }
         }
+        
     }
 
     public class DitFloViewModel : DitFloViewModel<IPublishedContent>

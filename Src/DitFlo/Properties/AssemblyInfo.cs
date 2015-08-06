@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("DitFlo")]
+[assembly: AssemblyTitle("DitFlo")] 
 [assembly: AssemblyDescription("A workflow for Umbraco using Ditto to create strongly typed models.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
@@ -14,4 +14,4 @@ using System.Runtime.InteropServices;
 [assembly: Guid("95F88FA4-AF40-49AB-82BE-18E006E29586")]
 
 [assembly: AssemblyVersion("0.1.*")]
-[assembly: AssemblyInformationalVersion("0.1.0-alpha")]
+[assembly: AssemblyInformationalVersion("0.1.0-develop")] 
