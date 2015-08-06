@@ -8,31 +8,33 @@ namespace DitFlo.Models
 {
     public abstract class BaseDitFloViewModel : RenderModel, IDitFloViewModel
     {
-        protected BaseDitFloViewModel(IPublishedContent content, CultureInfo culture)
+        protected BaseDitFloViewModel(
+            IPublishedContent content, 
+            CultureInfo culture = null, 
+            IEnumerable<DittoValueResolverContext> valueResolverContexts = null)
             : base(content, culture)
         {
-            ValueResolverContexts = new List<DittoValueResolverContext>();
+            ValueResolverContexts = valueResolverContexts ?? new List<DittoValueResolverContext>();
         }
-        
-        protected BaseDitFloViewModel(IPublishedContent content) 
-            : this(content, null)
-        { }
 
         public IPublishedContent CurrentPage { get { return Content; } }
 
-        internal List<DittoValueResolverContext> ValueResolverContexts { get; set; }
+        internal IEnumerable<DittoValueResolverContext> ValueResolverContexts { get; set; }
     }
 
     public class DitFloViewModel<TViewModel> : BaseDitFloViewModel
         where TViewModel : class
     {
-        public DitFloViewModel(IPublishedContent content, CultureInfo culture)
-            : base(content, culture)
-        { }
-
-        protected DitFloViewModel(IPublishedContent content)
-            : base(content)
-        { }
+        public DitFloViewModel(
+            IPublishedContent content,
+            CultureInfo culture = null,
+            IEnumerable<DittoValueResolverContext> valueResolverContexts = null,
+            TViewModel viewModel = null)
+            : base(content, culture, valueResolverContexts)
+        {
+            if(viewModel != null)
+                View = viewModel;
+        }
 
         private TViewModel _view;
         public TViewModel View
@@ -63,12 +65,11 @@ namespace DitFlo.Models
 
     public class DitFloViewModel : DitFloViewModel<IPublishedContent>
     {
-        public DitFloViewModel(IPublishedContent content, CultureInfo culture)
-            : base(content, culture)
-        { }
-
-        protected DitFloViewModel(IPublishedContent content)
-            : base(content)
+        protected DitFloViewModel(
+            IPublishedContent content,
+            CultureInfo culture = null,
+            IEnumerable<DittoValueResolverContext> valueResolverContexts = null)
+            : base(content, culture, valueResolverContexts)
         { }
     }
 

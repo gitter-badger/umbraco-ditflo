@@ -17,6 +17,14 @@ namespace DitFlo.Web.Mvc
     {
         protected override void SetViewData(ViewDataDictionary viewData)
         {
+            // If model is already ditflo view model, use it
+            if (viewData.Model is DitFloViewModel<TViewModel>)
+            {
+                base.SetViewData(viewData);
+                return;
+            }
+
+            // Gather dit flow view model properties
             var model = viewData.Model;
             var resolverContexts = new List<DittoValueResolverContext>();
 
@@ -31,37 +39,28 @@ namespace DitFlo.Web.Mvc
             // to allow them to have different model types
             var newViewData = new ViewDataDictionary(viewData);
 
-            // If the current view data model is the same, just use it
-            var typedModel = model as TViewModel;
-            if (typedModel != null)
+            // Get current content / culture
+            var content = UmbracoContext.PublishedContentRequest.PublishedContent;
+            var culture = UmbracoContext.PublishedContentRequest.Culture;
+
+            // Process model
+            var publishedContent = model as IPublishedContent;
+            if (publishedContent != null) 
             {
-                newViewData.Model = new DitFloViewModel<TViewModel>(
-                        UmbracoContext.PublishedContentRequest.PublishedContent,
-                        UmbracoContext.PublishedContentRequest.Culture) { View = typedModel, ValueResolverContexts = resolverContexts };
-
-                base.SetViewData(newViewData);
-                return;
-            }
-
-            var content = model as IPublishedContent;
-            if (content != null)
-            {
-                newViewData.Model = new DitFloViewModel<TViewModel>(content,
-                    UmbracoContext.PublishedContentRequest.Culture) { ValueResolverContexts = resolverContexts };
-
-                base.SetViewData(newViewData);
-                return;
+                content = publishedContent;
             }
 
             var renderModel = model as RenderModel;
             if (renderModel != null)
             {
-                newViewData.Model = new DitFloViewModel<TViewModel>(renderModel.Content,
-                    renderModel.CurrentCulture) { ValueResolverContexts = resolverContexts };
-
-                base.SetViewData(newViewData);
-                return;
+                content = renderModel.Content;
+                culture = renderModel.CurrentCulture;
             }
+
+            var typedModel = model as TViewModel;
+
+            // Create view model
+            newViewData.Model = new DitFloViewModel<TViewModel>(content, culture, resolverContexts, typedModel);
 
             base.SetViewData(newViewData);
         }
