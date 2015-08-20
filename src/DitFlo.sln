@@ -9,23 +9,23 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DitFlo.Web", "http://localh
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		ProjectReferences = ""
 		Debug.AspNetCompiler.VirtualPath = "/localhost_58086"
-		Debug.AspNetCompiler.PhysicalPath = "Src\DitFlo.Web\"
+		Debug.AspNetCompiler.PhysicalPath = "DitFlo.Web\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58086\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_58086"
-		Release.AspNetCompiler.PhysicalPath = "Src\DitFlo.Web\"
+		Release.AspNetCompiler.PhysicalPath = "DitFlo.Web\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58086\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "Src\DitFlo.Web\"
+		SlnRelativePath = "DitFlo.Web\"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DitFlo", "Src\DitFlo\DitFlo.csproj", "{201FE3BA-0909-4989-A022-053A97DFC276}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DitFlo", "DitFlo\DitFlo.csproj", "{201FE3BA-0909-4989-A022-053A97DFC276}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

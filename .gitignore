@@ -8,8 +8,9 @@ _ReSharper.*
 *.orig
 Thumbs.db
 .DS_Store
+.vs
 
-/packages/
+packages/
 TEMP/
 Logs/
 NuGetBackup/
