@@ -1,6 +1,6 @@
 ﻿using Our.Umbraco.Ditto;
 
-namespace DitFlo.Ditto.ValueResolvers
+namespace Our.Umbraco.DitFlo.Ditto.ValueResolvers
 {
     public class UrlTargetResolver : DittoValueResolver
     {

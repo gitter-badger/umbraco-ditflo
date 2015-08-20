@@ -1,7 +1,7 @@
 ﻿using Our.Umbraco.Ditto;
 using Umbraco.Web;
 
-namespace DitFlo.Ditto.ValueResolvers
+namespace Our.Umbraco.DitFlo.Ditto.ValueResolvers
 {
     public class ActiveNavLinkResolver : DittoValueResolver
     {

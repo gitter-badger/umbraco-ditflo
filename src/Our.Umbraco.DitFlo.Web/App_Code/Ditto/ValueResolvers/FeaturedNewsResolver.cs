@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using DitFlo.Models;
+using Our.Umbraco.DitFlo.Models;
 using Our.Umbraco.Ditto;
 
-namespace DitFlo.Ditto.ValueResolvers
+namespace Our.Umbraco.DitFlo.Ditto.ValueResolvers
 {
     public class FeaturedNewsResolver : BaseNewsResolver
     {

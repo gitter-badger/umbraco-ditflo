@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DitFlo.Models
+namespace Our.Umbraco.DitFlo.Models
 {
     public class PagedCollection
     {

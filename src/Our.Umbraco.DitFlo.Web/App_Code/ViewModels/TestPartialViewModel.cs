@@ -1,4 +1,4 @@
-﻿namespace DitFlo.ViewModels
+﻿namespace Our.Umbraco.DitFlo.ViewModels
 {
     public class TestPartialViewModel
     {

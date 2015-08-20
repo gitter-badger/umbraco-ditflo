@@ -5,7 +5,7 @@ using Our.Umbraco.Ditto;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
-namespace DitFlo.Ditto.ValueResolvers
+namespace Our.Umbraco.DitFlo.Ditto.ValueResolvers
 {
     public abstract class BaseNewsResolver<TContextType> : DittoValueResolver<TContextType>
         where TContextType : DittoValueResolverContext

@@ -1,7 +1,7 @@
-﻿using DitFlo.Ditto.ValueResolvers;
+﻿using Our.Umbraco.DitFlo.Ditto.ValueResolvers;
 using Our.Umbraco.Ditto;
 
-namespace DitFlo.Models
+namespace Our.Umbraco.DitFlo.Models
 {
     public class NavLink : Link
     {

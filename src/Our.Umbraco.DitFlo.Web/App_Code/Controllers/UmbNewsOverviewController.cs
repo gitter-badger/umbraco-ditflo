@@ -1,9 +1,9 @@
-﻿using DitFlo.Ditto.ValueResolvers.Contexts;
-using DitFlo.Web.Mvc.Controllers;
+﻿using Our.Umbraco.DitFlo.Ditto.ValueResolvers.Contexts;
+using Our.Umbraco.DitFlo.Web.Mvc.Controllers;
 using System.Web.Mvc;
 using Umbraco.Web.Models;
 
-namespace DitFlo.Controllers
+namespace Our.Umbraco.DitFlo.Controllers
 {
     public class UmbNewsOverviewController : DitFloController
     {

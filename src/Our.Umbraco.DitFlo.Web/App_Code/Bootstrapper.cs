@@ -1,9 +1,9 @@
-﻿using DitFlo.Models;
+﻿using Our.Umbraco.DitFlo.Models;
 using Our.Umbraco.Ditto;
 using Umbraco.Core;
 using Umbraco.Web;
 
-namespace DitFlo
+namespace Our.Umbraco.DitFlo
 {
     public class Bootstrapper : ApplicationEventHandler
     {

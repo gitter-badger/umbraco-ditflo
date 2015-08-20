@@ -1,10 +1,10 @@
-﻿using DitFlo.Ditto.ValueResolvers.Contexts;
-using DitFlo.Models;
+﻿using Our.Umbraco.DitFlo.Ditto.ValueResolvers.Contexts;
+using Our.Umbraco.DitFlo.Models;
 using Our.Umbraco.Ditto;
 using System;
 using System.Linq;
 
-namespace DitFlo.Ditto.ValueResolvers
+namespace Our.Umbraco.DitFlo.Ditto.ValueResolvers
 {
     public class NewsResolver : BaseNewsResolver<NewsResolverContext>
     {

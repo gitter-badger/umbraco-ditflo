@@ -4,7 +4,7 @@ using Our.Umbraco.Ditto;
 using Umbraco.Core.Models;
 using Umbraco.Web.Models;
 
-namespace DitFlo.Models
+namespace Our.Umbraco.DitFlo.Models
 {
     public abstract class BaseDitFloViewModel : RenderModel, IDitFloViewModel
     {

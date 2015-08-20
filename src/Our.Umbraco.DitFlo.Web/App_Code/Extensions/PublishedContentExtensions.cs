@@ -1,7 +1,7 @@
 ﻿using Umbraco.Core.Models;
 using Umbraco.Web;
 
-namespace DitFlo
+namespace Our.Umbraco.DitFlo
 {
     public static class PublishedContentExtensions
     {

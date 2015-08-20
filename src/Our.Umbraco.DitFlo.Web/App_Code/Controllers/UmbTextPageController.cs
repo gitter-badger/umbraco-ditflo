@@ -1,10 +1,10 @@
-﻿using DitFlo.Web.Mvc.Controllers;
+﻿using Our.Umbraco.DitFlo.Web.Mvc.Controllers;
 using System.Web.Mvc;
-using DitFlo.ViewModels;
+using Our.Umbraco.DitFlo.ViewModels;
 using Our.Umbraco.Ditto;
 using Umbraco.Web.Models;
 
-namespace DitFlo.Controllers
+namespace Our.Umbraco.DitFlo.Controllers
 {
     public class UmbTextPageController : DitFloController
     {

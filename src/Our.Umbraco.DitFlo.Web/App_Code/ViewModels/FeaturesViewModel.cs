@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using DitFlo.Ditto.ValueResolvers;
-using DitFlo.Models;
+using Our.Umbraco.DitFlo.Ditto.ValueResolvers;
+using Our.Umbraco.DitFlo.Models;
 using Our.Umbraco.Ditto;
 
-namespace DitFlo.ViewModels
+namespace Our.Umbraco.DitFlo.ViewModels
 {
     public class FeaturesViewModel
     {

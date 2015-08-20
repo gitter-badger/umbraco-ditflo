@@ -1,10 +1,10 @@
 ﻿using System.Web;
-using DitFlo.Ditto.TypeConverters;
-using DitFlo.Models;
+using Our.Umbraco.DitFlo.Ditto.TypeConverters;
+using Our.Umbraco.DitFlo.Models;
 using Our.Umbraco.Ditto;
 using System.ComponentModel;
 
-namespace DitFlo.ViewModels
+namespace Our.Umbraco.DitFlo.ViewModels
 {
     [UmbracoProperties(Prefix = "banner")]
     public class BannerViewModel

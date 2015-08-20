@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Globalization;
 using Our.Umbraco.Ditto;
 
-namespace DitFlo.Ditto.TypeConverters
+namespace Our.Umbraco.DitFlo.Ditto.TypeConverters
 {
     public class InvertBooleanConverter : DittoConverter
     {

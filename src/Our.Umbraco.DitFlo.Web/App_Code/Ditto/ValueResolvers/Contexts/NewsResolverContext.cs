@@ -1,6 +1,6 @@
 ﻿using Our.Umbraco.Ditto;
 
-namespace DitFlo.Ditto.ValueResolvers.Contexts
+namespace Our.Umbraco.DitFlo.Ditto.ValueResolvers.Contexts
 {
     public class NewsResolverContext : DittoValueResolverContext
     {

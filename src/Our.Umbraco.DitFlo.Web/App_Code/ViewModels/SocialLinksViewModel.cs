@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using Our.Umbraco.Ditto;
 
-namespace DitFlo.ViewModels
+namespace Our.Umbraco.DitFlo.ViewModels
 {
     [UmbracoProperties(Recursive = true)]
     public class SocialLinksViewModel

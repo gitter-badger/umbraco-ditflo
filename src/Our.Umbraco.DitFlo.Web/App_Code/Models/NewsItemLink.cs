@@ -1,7 +1,7 @@
 ﻿using System;
 using Our.Umbraco.Ditto;
 
-namespace DitFlo.Models
+namespace Our.Umbraco.DitFlo.Models
 {
     public class NewsItemLink : Link
     {

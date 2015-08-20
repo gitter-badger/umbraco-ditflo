@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using DitFlo.Models;
+using Our.Umbraco.DitFlo.Models;
 using System.Web.Mvc;
 using Our.Umbraco.Ditto;
 using Umbraco.Core.Models;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
 
-namespace DitFlo.Web.Mvc
+namespace Our.Umbraco.DitFlo.Web.Mvc
 {
     public abstract class DitFloView : DitFloView<IPublishedContent>
     { }
