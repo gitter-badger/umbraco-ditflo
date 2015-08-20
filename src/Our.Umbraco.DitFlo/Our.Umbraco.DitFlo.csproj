@@ -7,8 +7,8 @@
     <ProjectGuid>{201FE3BA-0909-4989-A022-053A97DFC276}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DitFlo</RootNamespace>
-    <AssemblyName>DitFlo</AssemblyName>
+    <RootNamespace>Our.Umbraco.DitFlo</RootNamespace>
+    <AssemblyName>Our.Umbraco.DitFlo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
