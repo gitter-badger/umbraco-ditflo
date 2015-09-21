@@ -8,3 +8,6 @@
 An simple workflow for Umbraco using Ditto to create strongly typed view models
 
 Run the website in `src/Our.Umbraco.DitFlo.Web`, backoffice login is `admin/admin`
+
+
+[![Join the chat at https://gitter.im/mattbrailsford/umbraco-ditflo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mattbrailsford/umbraco-ditflo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
