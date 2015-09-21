@@ -1,4 +1,4 @@
-<img height="100" src="docs/assets/img/ditflo.jpg" style="margin-bottom: 20px">
+<img height="100" src="docs/assets/ditflo.jpg" style="margin-bottom: 20px">
 
 [![Build status](https://img.shields.io/appveyor/ci/mattbrailsford/umbraco-ditflo.svg)](https://ci.appveyor.com/project/mattbrailsford/umbraco-ditflo)
 [![NuGet release](https://img.shields.io/nuget/v/Our.Umbraco.DitFlo.svg)](https://www.nuget.org/packages/Our.Umbraco.DitFlo)
